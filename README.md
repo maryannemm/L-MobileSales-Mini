@@ -1,30 +1,53 @@
 # Mobile Sales Mini App
 
-## Important Notes
+## Overview
 
-### Technologies Used
+Mobile Sales Mini is a Flutter-based offline-first sales automation app using:
 
-- Flutter (using Riverpod for state management)
-- GoRouter (for routing)
-- Hive (for local storage)
-- Custom UI widgets
+- **Hive** for local storage.
+- **Riverpod** for state management.
+- **GoRouter** for modern routing.
+- Custom UI components (drawer, badges, etc.).
+- Local role and permission checks.
 
-### Key Features
+The app is designed for scenarios where **APIs are not available**, and all data is stored and managed locally.
 
-- Local Login using Hive users (`usersBox`)
-- Role and permission-based route guarding (`authProvider.hasPermission`)
-- Dynamic greeting on `HomeScreen` based on time of day
-- Notification system with badge and Notification Center
-- Inventory management, Sales Orders, and Customers modules
-- Session auto-logout after inactivity (`AuthNotifier` session timer)
-- State management using Riverpod best practices (`StateNotifierProvider`)
+---
 
-### Default Credentials (Development Mode)
+## Technologies Used
+
+| Technology | Description                                                      |
+| ---------- | ---------------------------------------------------------------- |
+| Flutter    | Frontend UI                                                      |
+| Riverpod   | State Management (`StateNotifier`)                               |
+| Hive       | Local storage with boxes (`usersBox`, `salesBox`, `settingsBox`) |
+| GoRouter   | Routing & navigation (`/inventory/detail/:productId`)            |
+| Custom UI  | Drawer, PullRefreshList, NotificationBadgeIcon                   |
+
+---
+
+## Core Features
+
+- **Login & Session Management** (local only).
+- **Role and Permission Management** (per user).
+- **Session Timer (15 mins inactivity auto-logout).**
+- **Offline Inventory, Sales Orders, and Customer Management.**
+- **Pull to refresh lists (`LPullRefreshList`).**
+- **Dynamic Order Number Generator.**
+- **Notifications Center with Badge system.**
+- **Theme Toggle and App Drawer Navigation.**
+- **Order Detail, Receipt Preview, and Timeline View.**
+
+---
+
+## Default Credentials (Development Mode)
 
 | Username | Password |
 | -------- | -------- |
 | admin    | admin123 |
 
-> Note: Ensure you run the seeding logic during app startup if users are not present in the `usersBox`.
+> ⚠ Ensure your `usersBox` is seeded correctly using `seedTestUser()` on app startup.
 
-### Permissions (used in the app)
+---
+
+## Permissions Used in the App
